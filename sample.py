@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
 
 url = "https://www.scrapethissite.com/pages/forms/"
 
@@ -9,8 +10,18 @@ soup = BeautifulSoup(page.text, 'html.parser')
 
 # Getting the heading of the Teams
 get_heading = soup.find_all("th")
-for get_headings in get_heading:
-    print(get_headings.text.strip())
+#for get_headings in get_heading:
+#   print(get_headings.text.strip())
+heading_text = [heading.text.strip() for heading in get_heading]
+
+# Create a DataFrame from the list
+df = pd.DataFrame({'Headings': heading_text})
+
+with pd.ExcelWriter("output.xlsx", engine="openpyxl") as writer:
+    # Write the DataFrame to a sheet named 'Sheet1'
+    df.to_excel(writer, sheet_name="Sheet1", startrow=0,
+                startcol=0, index=False, header=False)
+
 
 print("\n")
 
