@@ -73,7 +73,7 @@ def search():
         result = getresult(username.strip())
         results[username] = result
 
-    return render_template('index.html', username=username, results=results)
+    return render_template('index.html', results=results)
 
 
 if __name__ == '__main__':
