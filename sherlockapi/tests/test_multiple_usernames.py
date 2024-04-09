@@ -2,7 +2,7 @@ import importlib
 import unittest
 import sys
 sys.path.append('../')
-import sherlock as sh
+import sherlockapi as sh
 
 checksymbols = []
 checksymbols = ["_", "-", "."]
@@ -10,9 +10,9 @@ checksymbols = ["_", "-", "."]
 """Test for multiple usernames.
 
         This test ensures that the function multiple_usernames works properly. More specific,
-        different scenarios are tested and only usernames that contain this specific sequence: {?} 
+        different scenarios are tested and only usernames that contain this specific sequence: {?}
         should return positive.
-      
+
         Keyword Arguments:
         self                   -- This object.
 

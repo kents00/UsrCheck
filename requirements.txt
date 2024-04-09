@@ -9,3 +9,4 @@ pandas>=1.0.0
 openpyxl<=3.0.10
 exrex>=0.11.0
 flask==3.0.2
+Flask-Caching<=2.1.0

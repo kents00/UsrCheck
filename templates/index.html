@@ -2,62 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mingerds</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Username Search</title>
 </head>
 <body>
-    <h1>Mingerds</h1>
+    <h1>Username Search</h1>
     <form action="/search" method="post">
-        <label for="username">Enter username:</label>
-        <input type="text" id="username" name="username" required>
+        <label for="username">Enter username(s) separated by commas:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
         <button type="submit">Search</button>
     </form>
+    <hr>
     {% if results %}
-    <h2>Search Results:</h2>
-    <ul>
-        {% for username, user_results in results.items() %}
-        <li>
-            <strong>{{ username }}:</strong>
-            {% if user_results %}
+        <h2>Search Results:</h2>
+        {% for username, sites in results.items() %}
+            <h3>{{ username }}</h3>
             <ul>
-                {% for result in user_results %}
-                <li>{{ result }}</li>
+                {% for site_result in sites %}
+                    <li><a href="{{ site_result.site_url }}">{{ site_result.site_name }}</a>: {{ site_result.status }}</li>
                 {% endfor %}
             </ul>
-            {% else %}
-            <p>No results found.</p>
-            {% endif %}
-        </li>
         {% endfor %}
-    </ul>
     {% endif %}
-    {% if username %}
-    <h2>Search Process:</h2>
-    <ul>
-        <li>Checking username <strong>{{ username }}</strong> on:</li>
-        <li id="search-process"></li>
-    </ul>
-    {% endif %}
-    <script>
-    const username = "{{ username }}";
-    const results = {{ results }};
-
-    function updateSearchProcess(messagae) {
-        const searchProcess = document.getElementById('search-process');
-        searchProcess.innerHTML += `<li>${message}</li>`;
-    }
-
-    if (username) {
-        for (const [username, userResults] of Object.entries(results)) {
-            if (userResults.length) {
-                updateSearchProcess(`Found for ${username}:`);
-                for (const result of userResults) {
-                    updateSearchProcess(result);
-                }
-            } else {
-                updateSearchProcess(`No results found for ${username}.`);
-            }
-        }
-    }
-    </script>
 </body>
 </html>
