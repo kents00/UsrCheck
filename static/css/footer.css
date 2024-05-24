@@ -1,0 +1,253 @@
+.footer-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #352F44;
+}
+
+.footer-max-width {
+    gap: var(--dl-space-space-oneandhalfunits);
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.footer-content {
+    gap: var(--dl-space-space-threeunits);
+    width: 100%;
+    display: flex;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-shrink: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.footer-text {
+    padding-top: 20px;
+    color: #e4e4e4;
+    font-size: 30px;
+    align-self: center;
+}
+
+.footer-social-links {
+    gap: var(--dl-space-space-twounits);
+    display: flex;
+    align-self: center;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.footer-icon {
+    fill: #FAF0E6;
+}
+
+.footer-icon2 {
+    fill: #FAF0E6;
+}
+
+.footer-icon4 {
+    fill: #FAF0E6;
+}
+
+.footer-icon6 {
+    fill: #FAF0E6;
+}
+
+.footer-credits {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.footer-row {
+    flex: 1;
+    display: flex;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-shrink: 0;
+    justify-content: space-between;
+}
+
+.footer-credits1 {
+    gap: var(--dl-space-space-twounits);
+    flex: 0 0 auto;
+    width: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.footer-content3 {
+    fill: #FAF0E6;
+    color: #FAF0E6;
+    padding-bottom: 20px;
+}
+
+@media(max-width: 991px) {
+    .footer-social-links {
+        align-self: center;
+    }
+
+    .footer-icon {
+        width: 30px;
+        height: 30px;
+        align-self: center;
+    }
+
+    .footer-icon2 {
+        width: 30px;
+        height: 30px;
+        align-self: center;
+    }
+
+    .footer-icon4 {
+        width: 30px;
+        height: 30px;
+        align-self: center;
+    }
+
+    .footer-icon6 {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media(max-width: 767px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-text {
+        color: #FAF0E6;
+        align-self: center;
+    }
+
+    .footer-social-links {
+        align-self: center;
+    }
+
+    .footer-credits {
+        margin-top: 0px;
+    }
+
+    .footer-row {
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .footer-credits1 {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+@media(max-width: 479px) {
+    .footer-container {
+        background-color: #352F44;
+    }
+
+    .footer-content {
+        gap: var(--dl-space-space-oneandhalfunits);
+    }
+
+    .footer-text {
+        align-self: center;
+    }
+
+    .footer-social-links {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-icon {
+        fill: #FAF0E6;
+    }
+
+    .footer-icon2 {
+        fill: #FAF0E6;
+    }
+
+    .footer-icon4 {
+        fill: #FAF0E6;
+    }
+
+    .footer-credits {
+        gap: 0;
+    }
+
+    .footer-row {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-content3 {
+        color: rgb(250, 240, 230);
+    }
+}
+
+@media(max-width: 1080px) {
+    .footer-social-links {
+        align-self: center;
+    }
+
+    .footer-icon {
+        width: 30px;
+        height: 30px;
+        align-self: center;
+    }
+
+    .footer-icon2 {
+        width: 30px;
+        height: 30px;
+        align-self: center;
+    }
+
+    .footer-icon4 {
+        width: 30px;
+        height: 30px;
+        align-self: center;
+    }
+
+    .footer-icon6 {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media(max-width: 1366px) {
+    .footer-social-links {
+        align-self: center;
+    }
+
+    .footer-icon {
+        width: 30px;
+        height: 30px;
+        align-self: center;
+    }
+
+    .footer-icon2 {
+        width: 30px;
+        height: 30px;
+        align-self: center;
+    }
+
+    .footer-icon4 {
+        width: 30px;
+        height: 30px;
+        align-self: center;
+    }
+
+    .footer-icon6 {
+        width: 30px;
+        height: 30px;
+    }
+}

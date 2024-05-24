@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>UsrCheck</title>
+  <meta property="og:title" content="Traveler template" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta property="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css" />
+  <link rel="stylesheet" href="{{ url_for ('static', filename='css/style.css')}}" />
+  <link rel="stylesheet" href="{{ url_for ('static', filename='css/index.css')}}" />
+  <link rel="stylesheet" href="{{ url_for ('static', filename='css/footer.css')}}" />
+</head>
+
+<body>
+  <div>
+    <div class="home-container">
+      <section class="home-hero">
+        <div class="home-main">
+          <div class="home-video">
+            <div class="home-tint"></div>
+          </div>
+          <div class="home-content">
+            <header data-thq="thq-navbar" class="home-navbar">
+              <h2 class="home-text">UsrCheck</h1>
+                <div data-thq="thq-burger-menu" class="home-menu">
+                  <div class="home-links"><a href="https://ko-fi.com/kents_workof_art" target="_blank"
+                      rel="noreferrer noopener" class="home-link link">Support Me</a></div>
+                </div>
+            </header>
+            <div class="home-center">
+              <div class="home-heading">
+                <h1 class="home-header">Username Search</h1>
+                <p class="home-caption">Username Search checks out if your username is available on more than 100 social
+                  media sites.</p>
+              </div>
+              <div class="home-border">
+                <div class="home-filter">
+                  <svg viewBox="0 0 950.8571428571428 1024" class="home-icon08">
+                    <path
+                      d="M658.286 475.429c0-141.143-114.857-256-256-256s-256 114.857-256 256 114.857 256 256 256 256-114.857 256-256zM950.857 950.857c0 40-33.143 73.143-73.143 73.143-19.429 0-38.286-8-51.429-21.714l-196-195.429c-66.857 46.286-146.857 70.857-228 70.857-222.286 0-402.286-180-402.286-402.286s180-402.286 402.286-402.286 402.286 180 402.286 402.286c0 81.143-24.571 161.143-70.857 228l196 196c13.143 13.143 21.143 32 21.143 51.429z">
+                    </path>
+                  </svg>
+                  <form action="/search" method="post" id="usernameForm">
+                    <input type="text" id="username" name="username" required><br><br>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="tours" class="home-quick-view">
+        <div class="home-main1">
+          <div class="home-heading1">
+            <h2 class="home-header1">How it works</h2>
+            <p class="home-caption1">If you know someone's Instagram username, you can search for their Twitter handle.
+              Similarly, if you know their Snapchat username, you can find their Facebook account using username search.
+            </p>
+            <div class="home-container3">
+              {% if results %}
+              <h1 class="home-text6">Searching "{{username}}" &nbsp;</h1>
+              {% for site_result in sites %}
+              <a href="{{ site_result.site_url }}" target="_blank" rel="noreferrer noopener" class="home-link1">
+                <h3 class="home-text7">{{ site_result.site_name }}</h3>
+              </a>: {{ site_result.status }}
+              {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="home-faq">
+        <div id="faqs" class="home-content1">
+          <div class="home-heading2">
+            <h2 class="home-header2">How We Can Help</h2>
+          </div>
+          <div class="home-accordion">
+            <div data-role="accordion-container" class="accordion home-element">
+              <div class="home-content2"><span class="home-header3">Username Availability</span><span
+                  data-role="accordion-content" class="home-description">Check Instagram or Facebook username availability and other
+                  social media name availability to secure a consistent online presence across popular platforms.</span>
+              </div>
+            </div>
+            <div data-role="accordion-container" class="accordion home-element1">
+              <div class="home-content2"><span class="home-header3">Reveal Identity</span><span
+                  data-role="accordion-content" class="home-description1">Uncover online identity details associated
+                  with a username. Find name, location and other personal information.</span></div>
+            </div>
+            <div data-role="accordion-container" class="accordion home-element2">
+              <div class="home-content2"><span class="home-header3">Avoid Scams</span><span
+                  data-role="accordion-content" class="home-description2">Prevent online scams by checking suspicious
+                  usernames you come across online.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="home-footer">
+        <div class="footer-container thq-section-padding">
+          <div class="footer-max-width thq-section-max-width">
+            <div class="footer-content">
+              <h1 class="footer-text"><span>UsrCheck</span></h1>
+              <div class="footer-social-links">
+                <a href="https://www.deviantart.com/kents001">
+                  <svg viewBox="0 0 585.1428571428571 1024" class="footer-icon">
+                    <path
+                      d="M585.143 173.143l-173.143 332.571 13.714 17.714h159.429v237.143h-289.714l-25.143 17.143-81.143 156c-0.571 0-16 16-17.143 17.143h-172v-173.143l173.143-333.143-13.714-17.143h-159.429v-237.143h289.714l25.143-17.143 81.143-156c0.571 0 16-16 17.143-17.143h172v173.143z">
+                    </path>
+                  </svg>
+                </a>
+                <a href="https://github.com/kents00">
+                  <svg viewBox="0 0 877.7142857142857 1024" class="footer-icon2">
+                    <path
+                      d="M296.571 685.714v0c1.143-1.714 0.571-5.143-1.714-7.429-2.857-2.286-6.286-2.857-8-1.143-1.143 1.714-0.571 5.143 1.714 7.429 2.857 2.286 6.286 2.857 8 1.143zM280.571 662.286c-1.714-2.286-4.571-3.429-6.857-2.286-1.714 1.143-1.714 4.571 0 6.857 2.286 2.857 5.143 4 6.857 2.857v0c1.714-1.143 1.714-4.571 0-7.429zM257.143 639.429v0c0.571-1.143-0.571-3.429-2.857-4.571-1.714-0.571-4-0.571-4.571 1.143-1.143 1.714 0 3.429 2.286 4.571 2.286 0.571 4.571 0.571 5.143-1.143zM269.143 652.571v0c1.143-1.143 1.143-4-1.143-5.714-1.714-2.286-4.571-2.857-5.714-1.714-1.714 1.714-1.143 4 0.571 6.286 1.714 1.714 4.571 2.857 6.286 1.143zM318.286 695.429v0c0.571-2.286-1.714-5.143-5.143-6.286s-6.286 0-7.429 2.286c-0.571 2.286 1.714 5.143 5.143 6.286s6.286 0 7.429-2.286zM342.286 697.143v0c0-2.286-2.857-4.571-6.857-4.571-3.429 0-5.714 2.286-5.714 4.571s2.857 4.571 6.286 4.571 6.286-2.286 6.286-4.571zM364.571 693.143v0c-0.571-2.286-4-3.429-7.429-2.857s-5.714 2.857-5.143 5.143 3.429 4 6.857 3.429 5.714-3.429 5.714-5.714zM731.429 512c0-161.714-130.857-292.571-292.571-292.571s-292.571 130.857-292.571 292.571c0 129.143 84 238.857 200 277.714 14.857 2.857 20-6.286 20-14.286 0-6.857 0-29.714-0.571-54.286 0 0-81.143 17.714-98.286-34.857 0 0-13.143-33.714-32.571-42.286 0 0-26.286-18.286 2.286-18.286 0 0 28.571 2.286 44.571 30.286 25.714 45.143 68.571 32 85.143 24.571 2.857-18.857 10.286-32 18.857-39.429-65.143-7.429-133.714-32.571-133.714-144.571 0-32 11.429-57.714 30.286-78.286-2.857-7.429-13.143-37.143 2.857-77.714 24.571-7.429 80.571 30.286 80.571 30.286 23.429-6.857 48-9.714 73.143-9.714s49.714 2.857 73.143 9.714c0 0 56-37.714 80.571-30.286 16 40.571 5.714 70.286 2.857 77.714 18.857 20.571 30.286 46.286 30.286 78.286 0 112.571-68.571 137.143-133.714 144.571 10.286 9.143 20 26.857 20 54.286 0 38.857-0.571 70.286-0.571 80 0 8 5.143 17.143 20 14.286 116-38.857 200-148.571 200-277.714zM877.714 237.714v548.571c0 90.857-73.714 164.571-164.571 164.571h-548.571c-90.857 0-164.571-73.714-164.571-164.571v-548.571c0-90.857 73.714-164.571 164.571-164.571h548.571c90.857 0 164.571 73.714 164.571 164.571z">
+                    </path>
+                  </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/kent-john-edoloverio/">
+                  <svg viewBox="0 0 877.7142857142857 1024" class="footer-icon4">
+                    <path
+                      d="M135.429 808h132v-396.571h-132v396.571zM276 289.143c-0.571-38.857-28.571-68.571-73.714-68.571s-74.857 29.714-74.857 68.571c0 37.714 28.571 68.571 73.143 68.571h0.571c46.286 0 74.857-30.857 74.857-68.571zM610.286 808h132v-227.429c0-121.714-65.143-178.286-152-178.286-70.857 0-102.286 39.429-119.429 66.857h1.143v-57.714h-132s1.714 37.143 0 396.571v0h132v-221.714c0-11.429 0.571-23.429 4-32 9.714-23.429 31.429-48 68-48 47.429 0 66.286 36 66.286 89.714v212zM877.714 237.714v548.571c0 90.857-73.714 164.571-164.571 164.571h-548.571c-90.857 0-164.571-73.714-164.571-164.571v-548.571c0-90.857 73.714-164.571 164.571-164.571h548.571c90.857 0 164.571 73.714 164.571 164.571z">
+                    </path>
+                  </svg>
+                </a>
+                <a href="https://kentedoloverio.teleporthq.app/">
+                  <svg viewBox="0 0 731.4285714285713 1024" class="footer-icon6">
+                    <path
+                      d="M731.429 799.429c0 83.429-54.857 151.429-121.714 151.429h-488c-66.857 0-121.714-68-121.714-151.429 0-150.286 37.143-324 186.857-324 46.286 45.143 109.143 73.143 178.857 73.143s132.571-28 178.857-73.143c149.714 0 186.857 173.714 186.857 324zM585.143 292.571c0 121.143-98.286 219.429-219.429 219.429s-219.429-98.286-219.429-219.429 98.286-219.429 219.429-219.429 219.429 98.286 219.429 219.429z">
+                    </path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="footer-credits">
+              <div class="footer-row">
+                <div class="footer-credits1">
+                  <span class="footer-content3 thq-body-small">
+                    <span>© 2024 UsrCheck. All Rights Reserved</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </section>
+    <div>
+      <div class="home-container5">
+        <script>
+          function initAccordion() {
+            /*
+            Accordion - Code Embed
+            */
+            const accordionContainers = document.querySelectorAll('[data-role="accordion-container"]'); // All accordion containers
+            const accordionContents = document.querySelectorAll('[data-role="accordion-content"]'); // All accordion content
+            const accordionIconsClosed = document.querySelectorAll('[data-role="accordion-icon-closed"]'); // All accordion closed icons
+            const accordionIconsOpen = document.querySelectorAll('[data-role="accordion-icon-open"]'); // All accordion open icons
+
+            accordionContents.forEach((accordionContent) => {
+              accordionContent.style.display = 'none'; // Hides all accordion contents
+            });
+
+            accordionIconsClosed.forEach((icon) => {
+              icon.style.display = 'flex';
+            });
+
+            accordionIconsOpen.forEach((icon) => {
+              icon.style.display = 'none';
+            });
+
+            accordionContainers.forEach((accordionContainer, index) => {
+              if (accordionContainer.classList.contains('initialised')) {
+                return;
+              }
+
+              accordionContainer.classList.add('initialised');
+
+              accordionContainer.addEventListener('click', () => {
+                if (accordionContents[index].style.display === 'flex') {
+                  // If the accordion is already open, close it
+                  accordionContents[index].style.display = 'none';
+                  accordionIconsClosed[index].style.display = 'flex';
+                  accordionIconsOpen[index].style.display = 'none';
+                } else {
+                  // If the accordion is closed, open it
+                  accordionContents.forEach((accordionContent) => {
+                    accordionContent.style.display = 'none'; // Hides all accordion contents
+                  });
+
+                  accordionIconsClosed.forEach((accordionIcon) => {
+                    accordionIcon.style.display = 'flex'; // Resets all icon transforms to 0deg (default)
+                  });
+
+                  accordionIconsOpen.forEach((accordionIcon) => {
+                    accordionIcon.style.display = 'none';
+                  });
+
+                  accordionContents[index].style.display = 'flex'; // Shows accordion content
+                  accordionIconsClosed[index].style.display = 'none'; // Rotates accordion icon 180deg
+                  accordionIconsOpen[index].style.display = 'flex';
+                }
+              });
+            });
+          }
+
+          initAccordion();
+
+          // Add this script to handle form submission on Enter key press
+          document.getElementById('username').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+              event.preventDefault();
+              document.getElementById('usernameForm').submit();
+            }
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>

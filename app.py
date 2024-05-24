@@ -1,11 +1,11 @@
 import os
-from flask import Flask, render_template, request
 from flask_caching import Cache
+from flask import Flask, render_template, request
 from sherlockapi.sites import SitesInformation
 from sherlockapi.sherlock import sherlock
 from sherlockapi.result import QueryStatus
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="static", static_url_path='/static')
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 
@@ -18,7 +18,6 @@ class QueryNotify:
 
     def __str__(self):
         return str(self.result)
-
 
 class QueryNotifyPrint(QueryNotify):
     def __init__(self, result=None):
@@ -70,13 +69,28 @@ def search():
     input_username = request.form['username'].strip()
     usernames = input_username.split()
     results = {}
+    sites = []  # Create a list to store site results
+
     for username in usernames:
         result = cache.get(username)
         if result is None:
             result = getresult(username)
-            cache.set(username, result, timeout=120)  # Cache for 1 hour
+            cache.set(username, result, timeout=60)  # Timeout for 60 sec
         results[username] = result
-    return render_template('index.html', results=results)
+
+        # Iterate over the result and create a list of site results
+        for site_url in result:
+            site_name = site_url.split('/')[-1]
+            status = "Available" if site_url else "Not Available"
+            site_result = {
+                'site_name': site_name,
+                'site_url': site_url,
+                'status': status
+            }
+            sites.append(site_result)
+
+    return render_template('index.html', username=input_username, sites=sites, results=results)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
